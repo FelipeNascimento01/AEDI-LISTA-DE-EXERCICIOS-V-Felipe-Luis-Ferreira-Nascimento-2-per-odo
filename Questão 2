@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Função que cria um array com a progressão aritmética
+int* progressaoAritmetica(int quantidade, int valorInicial, int razao) {
+    int* array = (int*)malloc(quantidade * sizeof(int)); // Aloca memória para o array
+    for (int i = 0; i < quantidade; i++) {
+        array[i] = valorInicial + i * razao; // Preenche o array
+    }
+    return array; // Retorna o array
+}
+
+// Função para imprimir o array
+void imprimirArray(int* array, int quantidade) {
+    for (int i = 0; i < quantidade; i++) {
+        printf("%d ", array[i]); // Imprime cada elemento
+    }
+    printf("\n");
+}
+
+int main() {
+    int quantidade, valorInicial, razao;
+    printf("Digite a quantidade de elementos: ");
+    scanf("%d", &quantidade);
+    printf("Digite o valor inicial: ");
+    scanf("%d", &valorInicial);
+    printf("Digite a razão: ");
+    scanf("%d", &razao);
+
+    int* array = progressaoAritmetica(quantidade, valorInicial, razao);
+    imprimirArray(array, quantidade); // Chama a função para imprimir o array
+
+    free(array); // Libera a memória alocada
+    return 0;
+}
