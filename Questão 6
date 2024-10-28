@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+// Função que retorna o maior dos três números
+int maiorTres(int a, int b, int c) {
+    if (a >= b && a >= c) return a; // Se a é maior ou igual aos outros
+    if (b >= a && b >= c) return b; // Se b é maior ou igual aos outros
+    return c; // Se c é o maior
+}
+
+int main() {
+    int a, b, c;
+    printf("Digite tres numeros: ");
+    scanf("%d %d %d", &a, &b, &c);
+    printf("O maior numero é: %d\n", maiorTres(a, b, c));
+    return 0;
+}
