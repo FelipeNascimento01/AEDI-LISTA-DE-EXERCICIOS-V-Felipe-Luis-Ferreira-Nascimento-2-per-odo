@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+// Função que calcula o Mínimo Comum Divisor (MCD)
+int mcd(int a, int b) {
+    if (b == 0) return a; // Se b for 0, o MCD é a
+    return mcd(b, a % b); // Chamada recursiva
+}
+
+int main() {
+    int a, b;
+    printf("Digite dois numeros inteiros positivos: ");
+    scanf("%d %d", &a, &b);
+    printf("O MCD de %d e %d é: %d\n", a, b, mcd(a, b));
+    return 0;
+}
