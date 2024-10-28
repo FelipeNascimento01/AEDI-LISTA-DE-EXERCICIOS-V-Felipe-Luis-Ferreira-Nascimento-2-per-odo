@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+// Função que retorna o n-ésimo número da sequência de Fibonacci
+int fibonacci(int n) {
+    if (n <= 0) return 0; // Se n for 0 ou negativo
+    if (n == 1) return 1; // Se n for 1
+    return fibonacci(n - 1) + fibonacci(n - 2); // Chama a função recursivamente
+}
+
+int main() {
+    int n;
+    printf("Digite um numero inteiro n: ");
+    scanf("%d", &n);
+    printf("O %d-ésimo termo da sequência de Fibonacci é: %d\n", n, fibonacci(n));
+    return 0;
+}
