@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+// Função recursiva para calcular a soma de 1 até n
+int somaRecursiva(int n) {
+    // Caso base: se n é 1, retorna 1
+    if (n == 1) {
+        return 1;
+    }
+    // Caso recursivo: soma n com a soma de 1 até n-1
+    return n + somaRecursiva(n - 1);
+}
+
+int main() {
+    int n;
+
+    // Solicita ao usuário um número inteiro positivo
+    printf("Digite um numero inteiro positivo: ");
+    scanf("%d", &n);
+
+    // Verifica se o número é positivo
+    if (n <= 0) {
+        printf("Por favor, digite um numero inteiro positivo.\n");
+        return 1;
+    }
+
+    // Chama a função e imprime o resultado
+    int resultado = somaRecursiva(n);
+    printf("A soma de todos os numeros de 1 ate %d e: %d\n", n, resultado);
+
+    return 0;
+}
