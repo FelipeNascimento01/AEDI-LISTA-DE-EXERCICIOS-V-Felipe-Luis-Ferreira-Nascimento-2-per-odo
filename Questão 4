@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+// Função para busca binária
+int buscaBinaria(int* array, int inicio, int fim, int elemento) {
+    if (inicio > fim) {
+        return -1; // Elemento não encontrado
+    }
+
+    int meio = (inicio + fim) / 2; // Calcula o meio do array
+    if (array[meio] == elemento) {
+        return meio; // Se o meio é o elemento procurado
+    } else if (array[meio] < elemento) {
+        return buscaBinaria(array, meio + 1, fim, elemento); // Busca na metade direita
+    } else {
+        return buscaBinaria(array, inicio, meio - 1, elemento); // Busca na metade esquerda
+    }
+}
+
+int main() {
+    int n, elemento;
+    printf("Digite o numero de elementos do array: ");
+    scanf("%d", &n);
+    
+    int array[n];
+    printf("Digite os elementos do array (em ordem crescente):\n");
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &array[i]); // Lê os elementos do array
+    }
+    
+    printf("Digite o elemento a ser buscado: ");
+    scanf("%d", &elemento);
+
+    int resultado = buscaBinaria(array, 0, n - 1, elemento);
+    if (resultado != -1) {
+        printf("Elemento encontrado no indice: %d\n", resultado);
+    } else {
+        printf("Elemento não encontrado.\n");
+    }
+    return 0;
+}
